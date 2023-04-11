@@ -7,11 +7,9 @@ import mongoose from 'mongoose';
 
 dotenv.config();
 
-const whitelist = /^https?:\/\/([a-z0-9]+\.)?seancafe\.com(:\d{1,5})?(\/.*)?$/;
-
 export const corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200
+    origin: ['https://www.seancafe.com/', 'https://codetyper.seancafe.com/', 'https://anotherblogapp.seancafe.com/'],
+    optionsSuccessStatus: 200,
 }
 
 const app: Express = express();
