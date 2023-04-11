@@ -8,7 +8,7 @@ import mongoose from 'mongoose';
 dotenv.config();
 
 export const corsOptions = {
-    origin: ['https://www.seancafe.com/', 'https://codetyper.seancafe.com/', 'https://anotherblogapp.seancafe.com/'],
+    origin: /\.seancafe\.com$/,
     optionsSuccessStatus: 200,
 }
 

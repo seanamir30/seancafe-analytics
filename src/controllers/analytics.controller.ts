@@ -1,9 +1,11 @@
 import express, { Request, Response } from "express";
 import { Analytics } from '../models/analytics.model';
+import cors from 'cors'
+import { corsOptions } from "../..";
 
 const router = express.Router()
 
-router.get('/api/analytics', async (req: Request, res: Response) => {
+router.get('/api/analytics', cors(corsOptions), async (req: Request, res: Response) => {
     const { url } = req.body
     if (url) {
         const analytics = await Analytics.find({ url: url })
@@ -13,7 +15,7 @@ router.get('/api/analytics', async (req: Request, res: Response) => {
     return res.status(200).send(analytics)
 })
 
-router.post('/api/analytics', async (req: Request, res: Response) => {
+router.post('/api/analytics', cors(corsOptions), async (req: Request, res: Response) => {
     const { url, userAgent } = req.body;
     console.log(url + userAgent)
     const analytics = Analytics.build({ url, userAgent })
