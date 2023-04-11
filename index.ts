@@ -9,7 +9,7 @@ dotenv.config();
 
 const whitelist = /^https?:\/\/([a-z0-9]+\.)?seancafe\.com(:\d{1,5})?(\/.*)?$/;
 
-const corsOptions = {
+export const corsOptions = {
     origin: whitelist,
     optionsSuccessStatus: 200
 }
